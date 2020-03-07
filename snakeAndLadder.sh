@@ -6,40 +6,54 @@
 # @ Since: 07 March 2020 / Saturday
 
 startPosition=0
-endPosition=30
+endPosition=100
 position=0
 
+function play()
+{
 while [[ $position -lt $endPosition ]]
 do
 	diceOutput=$((RANDOM%6+1))
 	choice=$((RANDOM%3))
+
 	case $choice in
 		0)
-			# No Play Condition
+			#No Play Condition
 			if [[ $position -lt 0 ]]
-         then
-            position=0
-         else
-            position=$(($position+0))
+  			then
+				position=$startPosition
+			else
+      				position=$(($position+0))
 			fi
 			;;
 		1)
-			# Snake
-			if [[ $position -lt 0 ]]
-         then
-            position=0
-         else
-            position=$(($position-$diceOutput))
-			fi
-			;;
-		*)
-			# ladder
+			#Snake
 			if [[ $position -lt 0 ]]
 			then
-				position=0
+				position=$startPosition
 			else
-				position=$(($position+$diceOutput))
+				if [[ $(($endPosition - $position)) -ge $diceOutput ]]
+				then
+					position=$(($position+$diceOutput))
+				else
+					position=$(($position+0))
+				fi
 			fi
+			;;
+		2)
+			#Ladder
+			if [[ $(($endPosition - $position)) -ge $diceOutput ]]
+			then
+				position=$(($position+$diceOutput))
+			else
+				position=$(($position+0))
+			fi
+
+			;;
+		*)
+			echo Invalid
 			;;
 	esac
 done
+}
+play
