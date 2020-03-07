@@ -8,6 +8,7 @@
 startPosition=0
 endPosition=100
 position=0
+diceRoll=1
 
 function play()
 {
@@ -23,7 +24,7 @@ do
   			then
 				position=$startPosition
 			else
-      				position=$(($position+0))
+      		position=$(($position+0))
 			fi
 			;;
 		1)
@@ -49,6 +50,10 @@ do
 			echo Invalid
 			;;
 	esac
+	((diceRoll++))
+	echo Position After $diceRoll th Roll.. $position
 done
+echo Player Won
 }
 play
+echo Number of Times Dice Roll..$diceRoll
