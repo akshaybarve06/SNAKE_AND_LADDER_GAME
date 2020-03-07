@@ -7,3 +7,6 @@
 
 startPosition=0
 endPosition=100
+
+diceOutput=$((RANDOM%6+1))
+
