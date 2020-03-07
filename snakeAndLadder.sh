@@ -19,8 +19,7 @@ do
 			if [[ $position -lt 0 ]]
          then
             position=0
-         else
-            position=$(($position+0))
+         
 			fi
 			;;
 		1)
