@@ -17,18 +17,19 @@ do
 		0)
 			# No Play Condition
 			if [[ $position -lt 0 ]]
-         then
-            position=0
-         
+         		then
+            			position=0
+			else
+         			position=$(($position+0))
 			fi
 			;;
 		1)
 			# Snake
 			if [[ $position -lt 0 ]]
-         then
-            position=0
-         else
-            position=$(($position-$diceOutput))
+         		then
+            			position=0
+         		else
+            			position=$(($position-$diceOutput))
 			fi
 			;;
 		*)
