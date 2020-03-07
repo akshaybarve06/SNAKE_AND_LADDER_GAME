@@ -32,12 +32,7 @@ do
 			then
 				position=$startPosition
 			else
-				if [[ $(($endPosition - $position)) -ge $diceOutput ]]
-				then
-					position=$(($position+$diceOutput))
-				else
-					position=$(($position+0))
-				fi
+				position=$(($position-$diceOutput))
 			fi
 			;;
 		2)
