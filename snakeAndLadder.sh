@@ -6,7 +6,7 @@
 # @ Since: 07 March 2020 / Saturday
 
 startPosition=0
-endPosition=30
+endPosition=100
 position=0
 
 while [[ $position -lt $endPosition ]]
